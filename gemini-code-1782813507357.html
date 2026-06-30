@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | IT & CS Researcher</title>
+    <style>
+        /* CSS Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        header h2 {
+            font-size: 1.5rem;
+            color: #555;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .cta-btn {
+            padding: 12px 30px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .project-card h3 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e9ecef;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            color: #495057;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+
+        #contact .section-title {
+            color: white;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #888;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* Simplifies mobile view for now */
+            }
+            header h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">CS_Research.</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <h1>Hello, World.</h1>
+        <h2>Software Engineering & Machine Learning Researcher</h2>
+        <a href="#projects" class="cta-btn">View My Work</a>
+    </header>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <p>I am an Information Technology and Computer Science student focused on bridging the gap between theoretical algorithms and practical application. My primary interests lie in exploring Deep Learning architectures, building robust operating systems, and developing scalable software solutions. I am constantly experimenting with new automation tools, frameworks, and cloud infrastructures.</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Featured Research & Projects</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <h3>Computer Vision Disease Detection</h3>
+                <p>Designed an image classification model to detect anomalies in plant foliage. Leveraged lightweight neural network architectures and transfer learning to ensure high accuracy while maintaining efficiency for mobile deployment.</p>
+                <span class="tag">Deep Learning</span>
+                <span class="tag">MobileNetV2</span>
+                <span class="tag">Python</span>
+            </div>
+
+            <div class="project-card">
+                <h3>Mobile Automation Utility</h3>
+                <p>Developed a cross-platform mobile application designed to automate repetitive communication tasks. Implemented native OS APIs to handle background processes and user permissions securely.</p>
+                <span class="tag">Flutter</span>
+                <span class="tag">Dart</span>
+                <span class="tag">Android API</span>
+            </div>
+
+            <div class="project-card">
+                <h3>Legacy Systems Vulnerability Testing</h3>
+                <p>Created a comprehensive academic blueprint analyzing security flaws in outdated network management utilities. Built a sandboxed application to demonstrate the mechanics of OS command injection and privilege escalation.</p>
+                <span class="tag">Cybersecurity</span>
+                <span class="tag">Perl</span>
+                <span class="tag">Linux Networking</span>
+            </div>
+
+            <div class="project-card">
+                <h3>IoT Home Automation Dashboard</h3>
+                <p>Programmed hardware microcontrollers to interface with various sensors, transmitting data via lightweight messaging protocols. Built a synchronized web interface to monitor and control hardware states remotely.</p>
+                <span class="tag">ESP32</span>
+                <span class="tag">MQTT</span>
+                <span class="tag">Web Dev</span>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('This is a static deployment test. Form submission requires a backend.');">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 CS Research Portfolio. Deployed for Cloud Infrastructure Project.</p>
+    </footer>
+
+</body>
+</html>
